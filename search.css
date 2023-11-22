@@ -1,0 +1,242 @@
+/* body, html{
+    height: 100%;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+/* Remove above before migrating to Blocs */
+
+
+/* #search Field */
+.search-container{
+    position: fixed;
+    left: 50%;
+    top: calc(50% - 100px);
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 500px;
+    height: 55px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: none;
+    align-items: center;
+}
+.clear-search-field-btn{
+    position: absolute;
+    z-index: 2;
+    right: 8.5%;
+    top: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.show-clear-search-field-btn{
+    display: flex !important;
+}
+.clear-search-field-btn .clear-icon{
+    filter: opacity(0.25);
+    width: 13px;
+    height: 13px;
+}
+.clear-search-field-btn .clear-icon:hover{
+    filter: opacity(1);
+}
+
+.show-search-container{
+    display: flex;
+}
+.search-container-squared-bottom{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#searchField-icon-btn{
+    position: absolute;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    height: 100%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#searchField-icon-btn .search-icon{
+    filter: opacity(0.25);
+    width: 20px;
+    height: 20px;
+}
+#searchField-icon-btn .search-icon:hover{
+    filter: opacity(1);
+}
+
+#search{
+    display: flex;
+    align-items: center;
+    width: 84%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-sizing: border-box;
+    padding: 11px 10px 11px 14px;
+    font-size: 25px;
+    letter-spacing: .02em;
+    outline: none;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+.search:not(.ghost){
+    text-transform: capitalize;
+}
+
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-ph);
+    color: #aaa;
+    text-transform: initial;
+}
+
+.noResult{
+    color: #aaa;
+    font-size: 13px;
+}
+
+#search .ghost{
+    color: #777;
+    font-size: 15px !important;
+    text-transform: lowercase;
+}
+
+/* ResultBox */
+.resultBox{
+    position: fixed;
+    top:calc(50% - 45px);
+    left: 50%;
+    z-index: 2;
+    box-sizing: content-box;
+    display: none;
+    margin: 0 0 0 0;
+    padding: 15px 0px;
+    width: 500px;
+    max-height: 190px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-top: 1px solid #e6e6e6;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: .02em;
+    text-transform: Capitalize;
+    outline: none;
+    transform: translate(-50%);
+}
+.resultBox > span{
+    display: block;
+    height: 12px;
+    margin-bottom: 4px;
+}
+
+.resultBox li{
+    list-style: none;
+    padding: 8px 15px;
+    color:#666;
+    cursor: pointer;
+}
+
+.resultBox .ghost{
+    color: #AAA;
+    font-weight: lighter;
+    font-size: 13px !important;
+    text-transform: lowercase;
+}
+
+/* hover */
+.resultBox li:hover{
+    background-color: #f6f6f6;
+    color:#000;
+}
+.resultBox li:hover .ghost{
+    color:#777 !important;
+}
+/* /hover */
+
+
+/* selected */
+.selected{
+    box-sizing: border-box;
+    background-color: #e6effc;
+    color: #20416e !important;
+}
+
+.selected .ghost{
+    color: #6f8eb9 !important; 
+}
+/* /selected */
+
+.show-resultBox{
+    display: block !important;
+}
+
+
+
+/* Custom Scrollbar */
+
+#style-2::-webkit-scrollbar-track
+{
+	border-bottom-right-radius: 6px;
+	background-color: #fff;
+}
+
+#style-2::-webkit-scrollbar
+{
+	width: 16px;
+	background-color: #fff;
+    border-bottom-right-radius: 6px;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #ddd;
+    border: 5px solid #fff;
+}
+#style-2::-webkit-scrollbar-thumb:hover
+{
+	border-radius: 10px;
+	background-color: #c3c3c3;
+}
+
+/* Overlay */
+.overlay-search{
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: none;
+    backdrop-filter: blur(2px);
+}
+
+/* Update for Blocs */
+/* #search-btn{
+    position: absolute;
+    z-index: 3;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #f90;
+    cursor: pointer;
+} */

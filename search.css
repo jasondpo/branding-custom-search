@@ -8,14 +8,22 @@
 } */
 /* Remove above before migrating to Blocs */
 
+.toggle-search-clear{
+    background-image: url(../img/clear-icon.svg); /* Need Sheila's help with this */
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
 
 /* #search Field */
 .search-container{
+    font-family: 'Roboto', sans-serif;
     position: fixed;
+    z-index: 3;
     left: 50%;
     top: calc(50% - 100px);
     transform: translateX(-50%);
-    z-index: 3;
     width: 500px;
     height: 55px;
     background-color: #fff;
@@ -26,29 +34,24 @@
 .clear-search-field-btn{
     position: absolute;
     z-index: 2;
-    right: 8.5%;
-    top: 0;
-    bottom: 0;
+    width: 13px;
+    height: 13px;
+    right: 10.5%;
+    top: 50%;
+    transform: translateY(-50%);
     display: none;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 100%;
+    filter: opacity(0.25);
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
+    background-image:url("img/clear-icon.svg");
+    background-image:url("../img/clear-icon.svg");
 }
 .show-clear-search-field-btn{
     display: flex !important;
 }
-.clear-search-field-btn .clear-icon{
-    filter: opacity(0.25);
-    width: 13px;
-    height: 13px;
-}
-.clear-search-field-btn .clear-icon:hover{
+.clear-search-field-btn:hover{
     filter: opacity(1);
 }
-
 .show-search-container{
     display: flex;
 }
@@ -58,24 +61,17 @@
 }
 #searchField-icon-btn{
     position: absolute;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: 0;
-    height: 100%;
-    aspect-ratio: 1/1;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-}
-
-#searchField-icon-btn .search-icon{
-    filter: opacity(0.25);
+    right: 20px;
     width: 20px;
     height: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    filter: opacity(0.25);
+	background-image:url("img/search-icon.svg");
+    background-image:url("../img/search-icon.svg");
 }
-#searchField-icon-btn .search-icon:hover{
+
+#searchField-icon-btn:hover{
     filter: opacity(1);
 }
 
@@ -121,19 +117,20 @@
     position: fixed;
     top:calc(50% - 45px);
     left: 50%;
-    z-index: 2;
+    z-index: 3;
     box-sizing: content-box;
     display: none;
     margin: 0 0 0 0;
     padding: 15px 0px;
     width: 500px;
-    max-height: 190px;
+    max-height: 200px;
     overflow-y: auto;
     background-color: #fff;
     border-top: 1px solid #e6e6e6;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
     font-weight: normal;
     letter-spacing: .02em;
     text-transform: Capitalize;
@@ -155,10 +152,17 @@
 
 .resultBox .ghost{
     color: #AAA;
-    font-weight: lighter;
+    font-weight: 400;
     font-size: 13px !important;
     text-transform: lowercase;
 }
+
+/* Highlight Search Results */
+.highlight {
+    background-color: yellow;
+  }
+/* /Highlight Search Results */
+
 
 /* hover */
 .resultBox li:hover{
@@ -224,12 +228,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.85);
     display: none;
     backdrop-filter: blur(2px);
 }
 
-/* Update for Blocs */
+/* Comment out for Blocs */
 /* #search-btn{
     position: absolute;
     z-index: 3;

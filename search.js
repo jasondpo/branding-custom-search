@@ -12,14 +12,17 @@ var searchComponent = (function(){
 
     //Open search UI
     $('#search-btn').click(function(){
-        alert('clicked');
         $('.overlay-search').toggle();
+        $('#search-btn').toggleClass('toggle-search-clear'); // Need Sheila's help with this
+        $('#search-btn span').toggleClass('float-lg-none icon-sm fa fa-search');
         $('.search-container').toggleClass('show-search-container');
     });
 
     $('.overlay-search').click(function(){
         $(this).hide();
         $('.search-container').removeClass('show-search-container');
+        $('#search-btn').toggleClass('toggle-search-clear'); // Need Sheila's help with this
+        $('#search-btn span').toggleClass('float-lg-none icon-sm fa fa-search');
     });
     // /search UI
 
@@ -34,12 +37,13 @@ var searchComponent = (function(){
             generateResults();
         }
         if(e.keyCode == 13){
-            goToPage();
+            // goToPage();
+            highlightSearchResult();
         }
     })
 
     // If user clicks search icon
-    $('.search-icon').click(function(){
+    $('#searchField-icon-btn').click(function(){
         goToPage();
     });
 
@@ -153,7 +157,7 @@ var searchComponent = (function(){
     });
 
     // Clear results if user clicks on clear button
-    $('.clear-icon').click(function(){
+    $('.clear-search-field-btn').click(function(){
         $(".resultBox").html('');
         $("#search").text('').html('');
         $('.clear-search-field-btn').removeClass('show-clear-search-field-btn');
@@ -197,9 +201,9 @@ var searchComponent = (function(){
                 }
             }
             // Enter key. Not sure about this one
-            else if (e.keyCode == 13) {
-                liSelectedLink.click();
-            }
+            // else if (e.keyCode == 13) {
+            //     liSelectedLink.click();
+            // }
         });
     }
 
@@ -238,12 +242,21 @@ var searchComponent = (function(){
         var thisResult = $(this).html();
         $('#search').html(thisResult);
     });
+
+    // Highlight search results
+    let params = new URL(document.location).searchParams;
+    let input = params.get("search"); 
+
+    var text;
+    var para = document.querySelectorAll('p');
+        para = [...para];
+        para.forEach(item => {
+            text = item.innerHTML;
+            text = text.indexOf(input);
+            if(text >= 0){
+                item.innerHTML = item.innerHTML.replaceAll(input, '<span class="highlight">'+input+'</span>');
+            }
+        });
+
+
 })();
-
-
-
-
-
-
-
-
